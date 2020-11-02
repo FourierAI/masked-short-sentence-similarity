@@ -73,7 +73,7 @@ def list_sentpair_score(file_path):
             sent1, sent2, score = contents
             sents1.append(sent1)
             sents2.append(sent2)
-            scores.append(score)
+            scores.append(int(score.strip()))
     return sents1, sents2, scores
 
 
