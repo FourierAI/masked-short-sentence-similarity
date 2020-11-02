@@ -16,15 +16,19 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="335a6928-552b-489b-8cbe-553b73fa1e5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/short_sentence_similarity.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/short_sentence_similarity.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataprocess/dataset_possibility_loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataprocess/dataset_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/dataset_loader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/lstm_siamese_network.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/lstm_siamese_network.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +69,12 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -144,6 +154,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="short_sentence_similarity" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="word_embedding" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="short_sentence_similarity" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -169,6 +201,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.lstm_siamese_network" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.dataset_loader" />
         <item itemvalue="Python.generate_train_test" />
         <item itemvalue="Python.word_embedding" />
@@ -188,7 +221,7 @@
       <updated>1603381131541</updated>
       <workItem from="1603381132843" duration="11372000" />
       <workItem from="1603714213178" duration="5519000" />
-      <workItem from="1604322303787" duration="1254000" />
+      <workItem from="1604322303787" duration="8043000" />
     </task>
     <task id="LOCAL-00001" summary="dataset processing (in progress)">
       <created>1603638589954</created>
@@ -197,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603638589954</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add test process">
+      <created>1604323735415</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604323735415</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +248,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -216,41 +268,50 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dataset processing (in progress)" />
-    <option name="LAST_COMMIT_MESSAGE" value="dataset processing (in progress)" />
+    <MESSAGE value="add test process" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test process" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2516" height="462" key="GridCell.Tab.0.bottom" timestamp="1604323034497">
+    <state width="2516" height="410" key="GridCell.Tab.0.bottom" timestamp="1604331044431">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.0.bottom/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323034497" />
-    <state width="2516" height="462" key="GridCell.Tab.0.center" timestamp="1604323034497">
+    <state width="2516" height="410" key="GridCell.Tab.0.bottom/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331044431" />
+    <state width="2516" height="410" key="GridCell.Tab.0.center" timestamp="1604331044431">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.0.center/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323034497" />
-    <state width="2516" height="462" key="GridCell.Tab.0.left" timestamp="1604323034497">
+    <state width="2516" height="410" key="GridCell.Tab.0.center/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331044431" />
+    <state width="2516" height="410" key="GridCell.Tab.0.left" timestamp="1604331044431">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.0.left/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323034497" />
-    <state width="2516" height="462" key="GridCell.Tab.0.right" timestamp="1604323034497">
+    <state width="2516" height="410" key="GridCell.Tab.0.left/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331044431" />
+    <state width="2516" height="410" key="GridCell.Tab.0.right" timestamp="1604331044431">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.0.right/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323034497" />
-    <state width="2516" height="462" key="GridCell.Tab.1.bottom" timestamp="1604323034497">
+    <state width="2516" height="410" key="GridCell.Tab.0.right/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331044431" />
+    <state width="2516" height="462" key="GridCell.Tab.1.bottom" timestamp="1604331037591">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.1.bottom/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323034497" />
-    <state width="2516" height="462" key="GridCell.Tab.1.center" timestamp="1604323034497">
+    <state width="2516" height="462" key="GridCell.Tab.1.bottom/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331037591" />
+    <state width="2516" height="462" key="GridCell.Tab.1.center" timestamp="1604331037591">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.1.center/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323034497" />
-    <state width="2516" height="462" key="GridCell.Tab.1.left" timestamp="1604323034497">
+    <state width="2516" height="462" key="GridCell.Tab.1.center/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331037591" />
+    <state width="2516" height="462" key="GridCell.Tab.1.left" timestamp="1604331037591">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.1.left/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323034497" />
-    <state width="2516" height="462" key="GridCell.Tab.1.right" timestamp="1604323034497">
+    <state width="2516" height="462" key="GridCell.Tab.1.left/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331037591" />
+    <state width="2516" height="462" key="GridCell.Tab.1.right" timestamp="1604331037591">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.1.right/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323034497" />
+    <state width="2516" height="462" key="GridCell.Tab.1.right/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331037591" />
+    <state x="-1688" y="72" key="Vcs.Push.Dialog.v2" timestamp="1604323742874">
+      <screen x="-2560" y="-360" width="2560" height="1400" />
+    </state>
+    <state x="-1688" y="72" key="Vcs.Push.Dialog.v2/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604323742874" />
+    <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1604328605252">
+      <screen x="-2560" y="-360" width="2560" height="1400" />
+    </state>
+    <state width="1288" height="708" key="XDebugger.FullValuePopup/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604328605252" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -267,66 +328,20 @@
         <watch expression="x_out.size()" language="Python" />
         <watch expression="last_right_hidden.size()" language="Python" />
         <watch expression="y_bar.size()" language="Python" />
+        <watch expression="sent1.view(1,-1,EMBEDDING_DIM)" language="Python" />
+        <watch expression="F.pairwise_distance(last_left_hidden,last_right_hidden)" language="Python" />
+        <watch expression="last_right_hidden.view(150,-1,10)" language="Python" />
+        <watch expression="F.pairwise_distance(h_nx.view(50,150),h_ny.view(50,150)).shape" language="Python" />
+        <watch expression="distance.squeeze()" language="Python" />
+        <watch expression="h_nx.view(150,50,1)" language="Python" />
+        <watch expression="out[0,:]" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$lstm_siamese_network.coverage" NAME="lstm_siamese_network Coverage Results" MODIFIED="1604323420722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$lstm_siamese_network.coverage" NAME="lstm_siamese_network Coverage Results" MODIFIED="1604329477675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$dataset_loader.coverage" NAME="dataset_loader Coverage Results" MODIFIED="1604322824152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="watch">
-      <expression>
-        <expression-string>y_bar.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>last_right_hidden.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>x_out.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>h_cx.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>h_ny.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>x.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>h_nx.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>left_hidden.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>left_sent.size()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>torch.tensor(np.array(sents_embedding)[0])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
+    <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$test.coverage" NAME="test Coverage Results" MODIFIED="1604331044424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
   </component>
   <component name="masterDetails">
     <states>

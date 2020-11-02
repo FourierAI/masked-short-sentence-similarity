@@ -22,6 +22,9 @@ class SiameseNet(nn.Module):
 
     def __init__(self, input_dim, hidden_dim, num_layers):
         super(SiameseNet, self).__init__()
+        self.input_dim = input_dim
+        self.hidden_dim = hidden_dim
+        self.num_layers = num_layers
 
         # Default Bert dimension 768
         self.rnn = nn.LSTM(
@@ -36,8 +39,9 @@ class SiameseNet(nn.Module):
         y_out, (h_ny, h_cy) = self.rnn(y, None)
 
         BATCH_SIZE = x.shape[0]
-        last_left_hidden = h_nx.squeeze()
-        last_right_hidden = h_ny.squeeze()
+        last_left_hidden = h_nx.view(BATCH_SIZE, self.hidden_dim)
+        last_right_hidden = h_ny.view(BATCH_SIZE, self.hidden_dim)
+
 
         distance = F.pairwise_distance(last_left_hidden, last_right_hidden)
 
@@ -48,12 +52,12 @@ class SiameseNet(nn.Module):
 
 if __name__ == "__main__":
 
-    EPOCH = 10
-    BATCH_SIZE = 50
+    EPOCH = 1
+    BATCH_SIZE = 100
     EMBEDDING_DIM = 100
     HIDDEN_DIM = 150
     NUM_LAYER = 1
-    LEARNING_RATE = 0.001
+    LEARNING_RATE = 0.01
 
     network = SiameseNet(EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYER)
     NETWORK_PATH = 'siamese_lstm.pkt'
@@ -94,8 +98,8 @@ if __name__ == "__main__":
     scores = []
     for sent1, sent2, score in dataset_test:
         scores.append(score.item())
-        y_bar = network(sent1.view(1, -1, EMBEDDING_DIM), sent2.view(1, -1, EMBEDDING_DIM))
-        if y_bar > 0.5:
+        y_bar = inference_network(sent1.view(1, -1, EMBEDDING_DIM), sent2.view(1, -1, EMBEDDING_DIM))
+        if y_bar > 0.4:
             Y_PREDICTED.append(1)
         else:
             Y_PREDICTED.append(0)
