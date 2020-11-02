@@ -14,6 +14,7 @@ from dataprocess.word_embedding import *
 from torch.autograd import Variable
 import numpy as np
 
+
 class DatasetLoader(Dataset):
 
     def __init__(self, dataset_type, embedding_dim):
@@ -73,10 +74,13 @@ class DatasetLoader(Dataset):
 
 
 if __name__ == "__main__":
-    dataset = DatasetLoader('train', 100)
+    dataset = DatasetLoader('test', 100)
     dataloader = DataLoader(dataset, batch_size=50, shuffle=True, num_workers=0, collate_fn=dataset.collate_fn)
 
     for step, batch in enumerate(dataloader):
         left_sent, right_sent, score = batch
 
         print('score', score)
+
+    for data in dataset:
+        print(data)

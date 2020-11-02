@@ -11,15 +11,17 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from dataprocess.dataset_loader import DatasetLoader
-from torch.utils.data import Dataset
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
 from torch.utils.data import DataLoader
 
+from dataprocess.dataset_loader import DatasetLoader
 
-class SimaeseNet(nn.Module):
+
+class SiameseNet(nn.Module):
 
     def __init__(self, input_dim, hidden_dim, num_layers):
-        super(SimaeseNet, self).__init__()
+        super(SiameseNet, self).__init__()
 
         # Default Bert dimension 768
         self.rnn = nn.LSTM(
@@ -53,20 +55,23 @@ if __name__ == "__main__":
     NUM_LAYER = 1
     LEARNING_RATE = 0.001
 
-    network = SimaeseNet(EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYER)
+    network = SiameseNet(EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYER)
+    NETWORK_PATH = 'siamese_lstm.pkt'
 
     optimizer = torch.optim.Adam(network.parameters(), lr=LEARNING_RATE)
     criterion = nn.MSELoss()
 
-    dataset = DatasetLoader('train', EMBEDDING_DIM)
-    dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=0, collate_fn=dataset.collate_fn)
+    dataset_train = DatasetLoader('train', EMBEDDING_DIM)
+    dataloader = DataLoader(dataset_train, batch_size=BATCH_SIZE, shuffle=True, num_workers=0,
+                            collate_fn=dataset_train.collate_fn)
 
     for i in range(EPOCH):
         loss_list = []
         for step, batch in enumerate(dataloader):
             left_sent, right_sent, scores = batch
 
-            y_bar = network(left_sent.view(BATCH_SIZE, -1, EMBEDDING_DIM), right_sent.view(BATCH_SIZE, -1, EMBEDDING_DIM))
+            y_bar = network(left_sent.view(BATCH_SIZE, -1, EMBEDDING_DIM),
+                            right_sent.view(BATCH_SIZE, -1, EMBEDDING_DIM))
 
             loss = criterion(y_bar.float(), scores.float())
             loss_list.append(loss)
@@ -75,7 +80,28 @@ if __name__ == "__main__":
             loss.backward()
             optimizer.step()
 
-        mean_loss = sum(loss_list)/len(loss_list)
+        mean_loss = sum(loss_list) / len(loss_list)
 
         print('The current {} epoch\'s mean loss:{}'.format(i, mean_loss))
 
+    torch.save(network.state_dict(), NETWORK_PATH)
+
+    inference_network = SiameseNet(EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYER)
+    inference_network.load_state_dict(torch.load(NETWORK_PATH))
+
+    dataset_test = DatasetLoader('test', EMBEDDING_DIM)
+    Y_PREDICTED = []
+    scores = []
+    for sent1, sent2, score in dataset_test:
+        scores.append(score.item())
+        y_bar = network(sent1.view(1, -1, EMBEDDING_DIM), sent2.view(1, -1, EMBEDDING_DIM))
+        if y_bar > 0.5:
+            Y_PREDICTED.append(1)
+        else:
+            Y_PREDICTED.append(0)
+
+    # compute accuracy and F1
+    accuracy = accuracy_score(scores, Y_PREDICTED)
+    F1 = f1_score(scores, Y_PREDICTED)
+
+    print('model performance, accuracy:{},F1:{}'.format(accuracy, F1))
