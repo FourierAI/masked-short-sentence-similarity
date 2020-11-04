@@ -42,7 +42,6 @@ class SiameseNet(nn.Module):
         last_left_hidden = h_nx.view(BATCH_SIZE, self.hidden_dim)
         last_right_hidden = h_ny.view(BATCH_SIZE, self.hidden_dim)
 
-
         distance = F.pairwise_distance(last_left_hidden, last_right_hidden)
 
         output_prediction = torch.exp(-1 * distance)
@@ -52,12 +51,12 @@ class SiameseNet(nn.Module):
 
 if __name__ == "__main__":
 
-    EPOCH = 1
+    EPOCH = 30
     BATCH_SIZE = 100
     EMBEDDING_DIM = 100
     HIDDEN_DIM = 150
     NUM_LAYER = 1
-    LEARNING_RATE = 0.01
+    LEARNING_RATE = 0.005
 
     network = SiameseNet(EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYER)
     NETWORK_PATH = 'siamese_lstm.pkt'
@@ -99,7 +98,7 @@ if __name__ == "__main__":
     for sent1, sent2, score in dataset_test:
         scores.append(score.item())
         y_bar = inference_network(sent1.view(1, -1, EMBEDDING_DIM), sent2.view(1, -1, EMBEDDING_DIM))
-        if y_bar > 0.4:
+        if y_bar > 0.5:
             Y_PREDICTED.append(1)
         else:
             Y_PREDICTED.append(0)
