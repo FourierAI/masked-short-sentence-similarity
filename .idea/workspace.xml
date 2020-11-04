@@ -200,8 +200,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.lstm_siamese_network" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.dataset_loader" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.generate_train_test" />
         <item itemvalue="Python.word_embedding" />
       </list>
@@ -222,7 +222,8 @@
       <workItem from="1603714213178" duration="5519000" />
       <workItem from="1604322303787" duration="9808000" />
       <workItem from="1604393396950" duration="55000" />
-      <workItem from="1604474021766" duration="761000" />
+      <workItem from="1604474021766" duration="8981000" />
+      <workItem from="1604493596299" duration="9183000" />
     </task>
     <task id="LOCAL-00001" summary="dataset processing (in progress)">
       <created>1603638589954</created>
@@ -245,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604331297511</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="modify train parameters">
+      <created>1604475251932</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604475251932</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,78 +287,81 @@
     <MESSAGE value="dataset processing (in progress)" />
     <MESSAGE value="add test process" />
     <MESSAGE value="modify siamese architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify siamese architecture" />
+    <MESSAGE value="modify train parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify train parameters" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2516" height="100" key="GridCell.Tab.0.bottom" timestamp="1604390541843">
+    <state width="2516" height="367" key="GridCell.Tab.0.bottom" timestamp="1604502805300">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="100" key="GridCell.Tab.0.bottom/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604390541843" />
-    <state width="2516" height="100" key="GridCell.Tab.0.center" timestamp="1604390541843">
+    <state width="2516" height="367" key="GridCell.Tab.0.bottom/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604502805300" />
+    <state width="2516" height="367" key="GridCell.Tab.0.center" timestamp="1604502805300">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="100" key="GridCell.Tab.0.center/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604390541843" />
-    <state width="2516" height="100" key="GridCell.Tab.0.left" timestamp="1604390541843">
+    <state width="2516" height="367" key="GridCell.Tab.0.center/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604502805300" />
+    <state width="2516" height="367" key="GridCell.Tab.0.left" timestamp="1604502805300">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="100" key="GridCell.Tab.0.left/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604390541843" />
-    <state width="2516" height="100" key="GridCell.Tab.0.right" timestamp="1604390541843">
+    <state width="2516" height="367" key="GridCell.Tab.0.left/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604502805300" />
+    <state width="2516" height="367" key="GridCell.Tab.0.right" timestamp="1604502805300">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="100" key="GridCell.Tab.0.right/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604390541843" />
-    <state width="2516" height="462" key="GridCell.Tab.1.bottom" timestamp="1604390541824">
+    <state width="2516" height="367" key="GridCell.Tab.0.right/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604502805300" />
+    <state width="2516" height="462" key="GridCell.Tab.1.bottom" timestamp="1604502591981">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.1.bottom/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604390541824" />
-    <state width="2516" height="462" key="GridCell.Tab.1.center" timestamp="1604390541824">
+    <state width="2516" height="462" key="GridCell.Tab.1.bottom/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604502591981" />
+    <state width="2516" height="462" key="GridCell.Tab.1.center" timestamp="1604502591980">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.1.center/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604390541824" />
-    <state width="2516" height="462" key="GridCell.Tab.1.left" timestamp="1604390541824">
+    <state width="2516" height="462" key="GridCell.Tab.1.center/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604502591980" />
+    <state width="2516" height="462" key="GridCell.Tab.1.left" timestamp="1604502591980">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.1.left/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604390541824" />
-    <state width="2516" height="462" key="GridCell.Tab.1.right" timestamp="1604390541824">
+    <state width="2516" height="462" key="GridCell.Tab.1.left/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604502591980" />
+    <state width="2516" height="462" key="GridCell.Tab.1.right" timestamp="1604502591980">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="2516" height="462" key="GridCell.Tab.1.right/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604390541824" />
-    <state x="-1688" y="72" key="Vcs.Push.Dialog.v2" timestamp="1604331308631">
+    <state width="2516" height="462" key="GridCell.Tab.1.right/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604502591980" />
+    <state x="-1581" y="41" key="RollbackChangesDialog" timestamp="1604499601666">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state x="-1688" y="72" key="Vcs.Push.Dialog.v2/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604331308631" />
-    <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1604328605252">
+    <state x="-1581" y="41" key="RollbackChangesDialog/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604499601666" />
+    <state x="-1688" y="72" key="Vcs.Push.Dialog.v2" timestamp="1604475263604">
       <screen x="-2560" y="-360" width="2560" height="1400" />
     </state>
-    <state width="1288" height="708" key="XDebugger.FullValuePopup/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604328605252" />
+    <state x="-1688" y="72" key="Vcs.Push.Dialog.v2/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604475263604" />
+    <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1604500248798">
+      <screen x="-2560" y="-360" width="2560" height="1400" />
+    </state>
+    <state width="1288" height="708" key="XDebugger.FullValuePopup/0.0.1280.680/-2560.-360.2560.1400@-2560.-360.2560.1400" timestamp="1604500248798" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dataprocess/dataset_loader.py</url>
+          <line>84</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="word_embedding.squeeze()" language="Python" />
-        <watch expression="torch.tensor(np.array(sents_embedding))" language="Python" />
-        <watch expression="torch.tensor(np.array(sents_embedding)[0])" language="Python" />
-        <watch expression="left_sent.size()" language="Python" />
-        <watch expression="left_hidden.size()" language="Python" />
-        <watch expression="h_nx.size()" language="Python" />
-        <watch expression="x.size()" language="Python" />
-        <watch expression="h_ny.size()" language="Python" />
-        <watch expression="h_cx.size()" language="Python" />
-        <watch expression="x_out.size()" language="Python" />
-        <watch expression="last_right_hidden.size()" language="Python" />
-        <watch expression="y_bar.size()" language="Python" />
-        <watch expression="sent1.view(1,-1,EMBEDDING_DIM)" language="Python" />
-        <watch expression="F.pairwise_distance(last_left_hidden,last_right_hidden)" language="Python" />
-        <watch expression="last_right_hidden.view(150,-1,10)" language="Python" />
-        <watch expression="F.pairwise_distance(h_nx.view(50,150),h_ny.view(50,150)).shape" language="Python" />
-        <watch expression="distance.squeeze()" language="Python" />
-        <watch expression="h_nx.view(150,50,1)" language="Python" />
-        <watch expression="out[0,:]" language="Python" />
+        <watch expression="left_sent.shape" language="Python" />
+        <watch expression="right_sent.shape" language="Python" />
+        <watch expression="score_extend.shape" language="Python" />
+        <watch expression="self.linear_2(self.linear_1(torch.cat([last_left_hidden, last_right_hidden, element_distance, element_product],1)))" language="Python" />
+        <watch expression="criterion(y_bar, scores[:,0].long())" language="Python" />
+        <watch expression="scores[:,0].long()" language="Python" />
+        <watch expression="scores[:,0]" language="Python" />
+        <watch expression="torch.tensor(scores)" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$lstm_siamese_network.coverage" NAME="lstm_siamese_network Coverage Results" MODIFIED="1604331577902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$dataset_loader.coverage" NAME="dataset_loader Coverage Results" MODIFIED="1604322824152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
+    <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$lstm_siamese_network.coverage" NAME="lstm_siamese_network Coverage Results" MODIFIED="1604502805271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$dataset_loader.coverage" NAME="dataset_loader Coverage Results" MODIFIED="1604494554080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
     <SUITE FILE_PATH="coverage/masked_short_sentence_similarity$test.coverage" NAME="test Coverage Results" MODIFIED="1604331159804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
   </component>
   <component name="masterDetails">

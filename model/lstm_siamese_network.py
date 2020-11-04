@@ -16,6 +16,7 @@ from sklearn.metrics import f1_score
 from torch.utils.data import DataLoader
 
 from dataprocess.dataset_loader import DatasetLoader
+import torch.nn as nn
 
 
 class SiameseNet(nn.Module):
@@ -34,6 +35,9 @@ class SiameseNet(nn.Module):
             batch_first=True,  # e.g. (batch, time_step, input_size)
         )
 
+        self.linear_1 = nn.Linear(hidden_dim * 4, hidden_dim)
+        self.linear_2 = nn.Linear(hidden_dim, 2)
+
     def forward(self, x, y):
         x_out, (h_nx, h_cx) = self.rnn(x, None)
         y_out, (h_ny, h_cy) = self.rnn(y, None)
@@ -42,16 +46,28 @@ class SiameseNet(nn.Module):
         last_left_hidden = h_nx.view(BATCH_SIZE, self.hidden_dim)
         last_right_hidden = h_ny.view(BATCH_SIZE, self.hidden_dim)
 
-        distance = F.pairwise_distance(last_left_hidden, last_right_hidden)
+        # distance = F.pairwise_distance(last_left_hidden, last_right_hidden)
+        # output_prediction = torch.exp(-1 * distance)
 
-        output_prediction = torch.exp(-1 * distance)
+        element_distance = torch.abs(last_left_hidden - last_right_hidden)
+        element_product = last_left_hidden * last_right_hidden
+
+        features = torch.cat([last_left_hidden, last_right_hidden, element_distance, element_product], 1)
+        output_prediction = self.linear_2(self.linear_1(features))
 
         return output_prediction
+
+    def predict(self, x, y):
+        out_prediction = self.forward(x, y)
+        if out_prediction[:, 0] >= out_prediction[:, 1]:
+            return 0
+        else:
+            return 1
 
 
 if __name__ == "__main__":
 
-    EPOCH = 30
+    EPOCH = 50
     BATCH_SIZE = 100
     EMBEDDING_DIM = 100
     HIDDEN_DIM = 150
@@ -62,7 +78,7 @@ if __name__ == "__main__":
     NETWORK_PATH = 'siamese_lstm.pkt'
 
     optimizer = torch.optim.Adam(network.parameters(), lr=LEARNING_RATE)
-    criterion = nn.MSELoss()
+    criterion = nn.CrossEntropyLoss()
 
     dataset_train = DatasetLoader('train', EMBEDDING_DIM)
     dataloader = DataLoader(dataset_train, batch_size=BATCH_SIZE, shuffle=True, num_workers=0,
@@ -76,7 +92,7 @@ if __name__ == "__main__":
             y_bar = network(left_sent.view(BATCH_SIZE, -1, EMBEDDING_DIM),
                             right_sent.view(BATCH_SIZE, -1, EMBEDDING_DIM))
 
-            loss = criterion(y_bar.float(), scores.float())
+            loss = criterion(y_bar, scores)
             loss_list.append(loss)
 
             optimizer.zero_grad()
@@ -97,12 +113,8 @@ if __name__ == "__main__":
     scores = []
     for sent1, sent2, score in dataset_test:
         scores.append(score.item())
-        y_bar = inference_network(sent1.view(1, -1, EMBEDDING_DIM), sent2.view(1, -1, EMBEDDING_DIM))
-        if y_bar > 0.5:
-            Y_PREDICTED.append(1)
-        else:
-            Y_PREDICTED.append(0)
-
+        predicted_label = inference_network.predict(sent1.view(1, -1, EMBEDDING_DIM), sent2.view(1, -1, EMBEDDING_DIM))
+        Y_PREDICTED.append(predicted_label)
     # compute accuracy and F1
     accuracy = accuracy_score(scores, Y_PREDICTED)
     F1 = f1_score(scores, Y_PREDICTED)
